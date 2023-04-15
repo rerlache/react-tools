@@ -5,6 +5,7 @@
   background-color: var(--second-bg-color);
   transition: width 0.01s ease-in;
   user-select: none;
+  border-right: 1px solid var(--third-bg-color);
 }
 .sidebar.opened {
   width: 15.625rem;

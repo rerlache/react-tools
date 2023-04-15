@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Todo from "./features/todo/Todo";
+import Calculator from "./features/calculator/Calculator";
 
 function checkWindow() {
   const temp = window
@@ -19,9 +20,10 @@ function App() {
           <Routes>
             <Route exact path={"/"} element='"Hello world!' />
             <Route exact path={"/todo"} element={<Todo />} />
-            <Route exact path={"/calculator"} element='Do calculation!' />
+            <Route exact path={"/calculator"} element={<Calculator />} />
             <Route exact path={"/notes"} element='take some notes' />
             <Route exact path={"/timer"} element='use some timer functionality' />
+            <Route exact path={"/cardgames"} element='coming soon..' />
           </Routes>
         </div>
       </Router>

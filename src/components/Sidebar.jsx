@@ -11,16 +11,16 @@ export default function Sidebar(props) {
   useEffect(() => {
     props.isOpen(menuOpen);
   }, [menuOpen]);
-  
+
   useEffect(() => {
     const updateWindowDimensions = () => {
       const isLandscape = window.innerWidth > window.innerHeight;
-        setMenuOpen(isLandscape)
-    }
-    window.addEventListener("resize", updateWindowDimensions)
+      setMenuOpen(isLandscape);
+    };
+    window.addEventListener("resize", updateWindowDimensions);
 
-    return () => window.removeEventListener('resize', updateWindowDimensions)
-    }, [])
+    return () => window.removeEventListener("resize", updateWindowDimensions);
+  }, []);
 
   function handleSidebarToggle() {
     setMenuOpen(!menuOpen);
@@ -34,7 +34,11 @@ export default function Sidebar(props) {
             className={`toggle-menu-btn`}
             onClick={() => handleSidebarToggle()}
           >
-            {menuOpen ? ( <MenuOpenIcon fontSize="large" /> ) : ( <MenuIcon fontSize="large" /> )}
+            {menuOpen ? (
+              <MenuOpenIcon fontSize="large" />
+            ) : (
+              <MenuIcon fontSize="large" />
+            )}
           </div>
         </div>
         <div className="menu-container">
