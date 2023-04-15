@@ -11,8 +11,8 @@
   line-height: 1.5;
   font-weight: 400;
 
+  display:flex;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
   font-synthesis: none;
@@ -29,8 +29,7 @@
   --main-foreground-color: hsl(198, 9%, 79%);
 }
 .content-container {
-  padding: 10px; 
-  width: 100vw;
+  padding: 10px;
 }
 .content-container.expanded {
   margin-left: 250px;

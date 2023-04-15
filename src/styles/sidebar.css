@@ -4,16 +4,22 @@
   padding: 10px;
   background-color: var(--second-bg-color);
   transition: width 0.01s ease-in;
+  user-select: none;
 }
 .sidebar.opened {
-  width: 250px;
+  width: 15.625rem;
 }
 .sidebar.closed {
-  width: 50px;
+  width: 3.125rem;
 }
 .sidebar .top-section {
   position: relative;
   min-height: var(--nav-icon-height);
+}
+.sidebar .top-section .page-title{
+  color: var(--main-foreground-color);
+  font-size: 1.45rem;
+  font-weight: 500;
 }
 .sidebar .top-section .toggle-menu-btn {
   display: inline-block;
@@ -33,7 +39,6 @@
 }
 .sidebar .menu-container li {
   list-style: none;
-  user-select: none;
 }
 .sidebar .menu-container .menu-item {
   width: 100%;

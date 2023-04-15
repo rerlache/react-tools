@@ -11,7 +11,7 @@ function App() {
         <Sidebar isOpen={(menuOpen) => {setIsSidebarOpen(menuOpen)}} />
         <div className={`content-container ${isSidebarOpen ? 'expanded' : 'collapsed'}`}>
           <Routes>
-            <Route exact path={"/home"} element='"Hello world!' />
+            <Route exact path={"/"} element='"Hello world!' />
             <Route exact path={"/todo"} element={<Todo />} />
             <Route exact path={"/calculator"} element='Do calculation!' />
             <Route exact path={"/notes"} element='take some notes' />
