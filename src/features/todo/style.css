@@ -159,6 +159,6 @@ body {
 }
 
 .listitem button.btn.btn-info{
-  flot:right;
+  float:right;
   margin-left: auto;
 }

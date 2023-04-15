@@ -6,11 +6,21 @@ import MenuIcon from "@mui/icons-material/Menu";
 import "../styles/sidebar.css";
 
 export default function Sidebar(props) {
-  const [menuOpen, setMenuOpen] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(props.expanded);
 
   useEffect(() => {
     props.isOpen(menuOpen);
   }, [menuOpen]);
+  
+  useEffect(() => {
+    const updateWindowDimensions = () => {
+      const isLandscape = window.innerWidth > window.innerHeight;
+        setMenuOpen(isLandscape)
+    }
+    window.addEventListener("resize", updateWindowDimensions)
+
+    return () => window.removeEventListener('resize', updateWindowDimensions)
+    }, [])
 
   function handleSidebarToggle() {
     setMenuOpen(!menuOpen);
@@ -24,11 +34,7 @@ export default function Sidebar(props) {
             className={`toggle-menu-btn`}
             onClick={() => handleSidebarToggle()}
           >
-            {menuOpen ? (
-              <MenuOpenIcon fontSize="large" />
-            ) : (
-              <MenuIcon fontSize="large" />
-            )}
+            {menuOpen ? ( <MenuOpenIcon fontSize="large" /> ) : ( <MenuIcon fontSize="large" /> )}
           </div>
         </div>
         <div className="menu-container">

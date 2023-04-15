@@ -3,12 +3,18 @@ import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Todo from "./features/todo/Todo";
 
+function checkWindow() {
+  const temp = window
+  console.log(temp)
+}
+
 function App() {
   const [isSidebarOpen,  setIsSidebarOpen] = useState(false)
+    const sidebarExpanded = window.innerHeight < window.innerWidth
   return (
     <>
       <Router>
-        <Sidebar isOpen={(menuOpen) => {setIsSidebarOpen(menuOpen)}} />
+        <Sidebar expanded={sidebarExpanded} isOpen={(menuOpen) => {setIsSidebarOpen(menuOpen)}} />
         <div className={`content-container ${isSidebarOpen ? 'expanded' : 'collapsed'}`}>
           <Routes>
             <Route exact path={"/"} element='"Hello world!' />
