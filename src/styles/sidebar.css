@@ -12,12 +12,16 @@
 }
 .sidebar.closed {
   width: 3.125rem;
+  text-align: center;
 }
 .sidebar .top-section {
   position: relative;
   min-height: var(--nav-icon-height);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
-.sidebar .top-section .page-title{
+.sidebar .top-section .page-title {
   color: var(--main-foreground-color);
   font-size: 1.45rem;
   font-weight: 500;
@@ -29,6 +33,10 @@
   height: var(--nav-icon-height);
   top: 0;
   right: 0;
+}
+.sidebar .top-section .toggle-menu-btn .menu-toggle-icon {
+  width: var(--nav-icon-width);
+  height: var(--nav-icon-height);
 }
 .sidebar .menu-container {
   display: inline-block;
@@ -42,14 +50,18 @@
   list-style: none;
 }
 .sidebar .menu-container .menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
   width: 100%;
-  color: var(--main-foreground-color);
-  text-decoration: none;
-  display: block;
-  margin: 2px 0;
-  font-weight: 600;
-  cursor: pointer;
+  margin: 3px 0;
+  padding: 3px;
   border-radius: 7px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 550;
+  color: var(--main-foreground-color);
 }
 .sidebar .menu-container .menu-item:hover {
   background-color: var(--main-bg-color);
@@ -61,9 +73,44 @@
   display: inline-block;
   width: var(--nav-icon-width);
   height: var(--nav-icon-height);
-  vertical-align: middle;
-  text-align: center;
+}
+.sidebar .menu-container .menu-item .menu-item-text {
+  justify-content: center;
+}
+.sidebar .menu-container .menu-item .menu-item-dropdown {
+  right: 0;
+  margin-left: auto;
+}
+.submenu-container {
+  display: inline-block;
+  position: absolute;
+  margin: 0 5px 0 5px;
+  top: 40;
+  left: 0;
+  background-color: var(--main-bg-color);
+  width: calc(100% - 10px);
+}
+.submenu-container .submenu-item {
+  color: var(--main-foreground-color);
+  display: inline-block;
+  width: 100%;
+  padding: 3px 0 3px 5px;
+  text-decoration: none;
+}
+.submenu-container .submenu-item .submenu-item-icon {
+  display: inline-block;
+  width: calc(var(--nav-icon-height) / 1.5);
+  height: calc(var(--nav-icon-height) / 1.5);
   margin-right: 5px;
+}
+.submenu-container .submenu-item.active,
+.submenu-container .submenu-item:focus {
+  background-color: var(--third-bg-color);
+  border-left: 3px solid aqua;
+}
+.submenu-container .submenu-item:hover {
+  background-color: var(--main-foreground-color);
+  color: var(--main-bg-color);
 }
 .tooltiptext {
   visibility: hidden;
@@ -85,7 +132,8 @@
   content: " ";
   position: absolute;
   top: 50%;
-  right: 100%; /* To the left of the tooltip */
+  left: 50px;
+  margin-left: 50px;
   margin-top: -5px;
   border-width: 5px;
   border-style: solid;

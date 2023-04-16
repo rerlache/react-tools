@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import { SidebarData } from "./sidebarData";
-import MenuOpenIcon from "@mui/icons-material/MenuOpen";
-import MenuIcon from "@mui/icons-material/Menu";
+import * as MdIcons from "react-icons/md/";
 import "../styles/sidebar.css";
+import SidebarMainMenu from "./sidebarMainMenu";
 
 export default function Sidebar(props) {
   const [menuOpen, setMenuOpen] = useState(props.expanded);
@@ -35,31 +34,17 @@ export default function Sidebar(props) {
             onClick={() => handleSidebarToggle()}
           >
             {menuOpen ? (
-              <MenuOpenIcon fontSize="large" />
+              <MdIcons.MdMenuOpen className="menu-toggle-icon" />
             ) : (
-              <MenuIcon fontSize="large" />
+              <MdIcons.MdMenu className="menu-toggle-icon" />
             )}
           </div>
         </div>
         <div className="menu-container">
           <ul>
-            {SidebarData.map((val, key) => {
+            {SidebarData.map((item, key) => {
               return (
-                <li key={key}>
-                  <NavLink
-                    className={`menu-item ${menuOpen ? "" : "tooltip"}`}
-                    to={val.link}
-                  >
-                    <div className="menu-item-icon">{val.icon}</div>
-                    <span
-                      className={`menu-item-text ${
-                        menuOpen ? "" : "tooltiptext"
-                      }`}
-                    >
-                      {val.title}
-                    </span>
-                  </NavLink>
-                </li>
+                <SidebarMainMenu item={item} key={key} menuOpen={menuOpen} />
               );
             })}
           </ul>

@@ -1,45 +1,48 @@
-import HomeIcon from "@mui/icons-material/Home";
-import TimerIcon from "@mui/icons-material/Timer";
-import ChecklistIcon from "@mui/icons-material/Checklist";
-import NoteIcon from "@mui/icons-material/Note";
-import CalculateIcon from "@mui/icons-material/Calculate";
-import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
+import * as BiIcons from "react-icons/bi/";
+import * as RxIcons from "react-icons/rx/";
+import * as GiIcons from "react-icons/gi/";
 
 export const SidebarData = [
   {
     title: "Home",
-    icon: <HomeIcon fontSize="large" />,
+    icon: <BiIcons.BiHome className="menu-item-icon" />,
     link: "/",
   },
   {
     title: "Todo",
-    icon: <ChecklistIcon fontSize="large" />,
+    icon: <BiIcons.BiTask className="menu-item-icon" />,
     link: "/todo",
   },
   {
     title: "Calculator",
-    icon: <CalculateIcon fontSize="large" />,
+    icon: <BiIcons.BiCalculator className="menu-item-icon" />,
     link: "/calculator",
   },
   {
     title: "Notes",
-    icon: <NoteIcon fontSize="large" />,
+    icon: <BiIcons.BiNotepad className="menu-item-icon" />,
     link: "/notes",
   },
   {
     title: "Timer",
-    icon: <TimerIcon fontSize="large" />,
+    icon: <RxIcons.RxLapTimer className="menu-item-icon" />,
     link: "/timer",
   },
   {
     title: "Card Games",
-    icon: <VideogameAssetIcon fontSize="large" />,
+    icon: <GiIcons.GiCardDraw className="menu-item-icon" />,
     link: "/cardgames",
     subitems: [
-      {title: "Card-War", icon: null, link: '/cardgames/cardwar'},
-      {title: "Black Jack", icon: null, link: '/cardgames/blackjack'},
-    ]
-  }
+      {
+        title: "Card-War",
+        icon: <GiIcons.GiCardRandom className="submenu-item-icon" />,
+        link: "/cardgames/cardwar",
+      },
+      {
+        title: "Black Jack",
+        icon: <GiIcons.GiCardAceHearts className="submenu-item-icon" />,
+        link: "/cardgames/blackjack",
+      },
+    ],
+  },
 ];
-
-
