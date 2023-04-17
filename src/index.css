@@ -49,3 +49,6 @@
   left: 50px;
   width: calc(100% - 50px);
 }
+.notes-container{
+  display: flex;
+}

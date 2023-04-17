@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Todo from "./features/todo/Todo";
 import Calculator from "./features/calculator/Calculator";
+import Notes from "./features/notes/Notes";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -25,7 +26,7 @@ function App() {
             <Route exact path={"/"} element='"Hello world!' />
             <Route exact path={"/todo"} element={<Todo />} />
             <Route exact path={"/calculator"} element={<Calculator />} />
-            <Route exact path={"/notes"} element="take some notes" />
+            <Route exact path={"/notes"} element={<Notes />} />
             <Route
               exact
               path={"/timer"}
