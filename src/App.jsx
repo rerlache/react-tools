@@ -23,10 +23,11 @@ function App() {
           }`}
         >
           <Routes>
-            <Route exact path={"/"} element='"Hello world!' />
+            <Route exact path={"/"} element='Hello world!' />
             <Route exact path={"/todo"} element={<Todo />} />
             <Route exact path={"/calculator"} element={<Calculator />} />
             <Route exact path={"/notes"} element={<Notes />} />
+            <Route exact path={"/qrcode"} element={'qr code generator comming soon ...'} />
             <Route
               exact
               path={"/timer"}

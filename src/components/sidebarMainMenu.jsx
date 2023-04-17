@@ -4,7 +4,7 @@ import * as MdIcons from "react-icons/md/";
 import SidebarSubMenu from "./sidebarSubMenu";
 
 export default function SidebarMainMenu({ item, key, menuOpen }) {
-  const [subMenuExpanded, setSubMenuExpanded] = useState(true);
+  const [subMenuExpanded, setSubMenuExpanded] = useState(false);
 
   return (
     <li key={key}>

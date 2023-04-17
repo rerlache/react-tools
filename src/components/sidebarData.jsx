@@ -1,6 +1,7 @@
+import * as AiIcons from 'react-icons/ai/'
 import * as BiIcons from "react-icons/bi/";
-import * as RxIcons from "react-icons/rx/";
 import * as GiIcons from "react-icons/gi/";
+import * as RxIcons from "react-icons/rx/";
 
 export const SidebarData = [
   {
@@ -27,6 +28,11 @@ export const SidebarData = [
     title: "Timer",
     icon: <RxIcons.RxLapTimer className="menu-item-icon" />,
     link: "/timer",
+  },
+  {
+    title: "QR Code Generator",
+    icon: <AiIcons.AiOutlineQrcode className="menu-item-icon" />,
+    link: "/qrcode",
   },
   {
     title: "Card Games",
