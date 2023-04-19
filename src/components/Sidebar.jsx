@@ -26,7 +26,7 @@ export default function Sidebar(props) {
   }
   return (
     <>
-      <div className={`sidebar ${menuOpen ? "opened" : "closed"}`}>
+      <nav className={`sidebar ${menuOpen ? "opened" : "closed"}`}>
         <div className="top-section">
           {menuOpen ? <div className="page-title">Tools</div> : ""}
           <div
@@ -42,14 +42,18 @@ export default function Sidebar(props) {
         </div>
         <div className="menu-container">
           <ul>
-            {SidebarData.map((item, key) => {
+            {SidebarData.map((item) => {
               return (
-                <SidebarMainMenu item={item} key={key} menuOpen={menuOpen} />
+                <SidebarMainMenu
+                  key={item.id}
+                  item={item}
+                  menuOpen={menuOpen}
+                />
               );
             })}
           </ul>
         </div>
-      </div>
+      </nav>
     </>
   );
 }

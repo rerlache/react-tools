@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import * as MdIcons from "react-icons/md/";
 import SidebarSubMenu from "./sidebarSubMenu";
 
-export default function SidebarMainMenu({ item, key, menuOpen }) {
+export default function SidebarMainMenu({ item, menuOpen }) {
   const [subMenuExpanded, setSubMenuExpanded] = useState(false);
-
   return (
-    <li key={key}>
+    <li key={item.id}>
       <NavLink
+        key={item.id}
         className={`menu-item ${menuOpen ? "" : "tooltip"}`}
         to={item.link}
         onClick={() => item.subitems && setSubMenuExpanded(!subMenuExpanded)}
@@ -26,10 +26,8 @@ export default function SidebarMainMenu({ item, key, menuOpen }) {
       {item.subitems && subMenuExpanded ? (
         <div className="submenu-container">
           <ul>
-            {item.subitems.map((item, key) => {
-              return (
-                <SidebarSubMenu item={item} key={key} menuOpen={menuOpen} />
-              );
+            {item.subitems.map((item) => {
+              return <SidebarSubMenu key={item.id} item={item} menuOpen={menuOpen} />;
             })}
           </ul>
         </div>

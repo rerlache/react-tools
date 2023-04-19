@@ -12,10 +12,10 @@ function TodoItem({ id, title, completed, toggleTodo, deleteTodo }) {
         />
         {title}
       </label>
-      <button className={`btn ${Style['btn-info']}`} disabled={completed}>
+      <button className={`${Style.btn} ${Style['btn-info']}`} disabled={completed}>
         Edit
       </button>
-      <button className={`btn ${Style['btn-danger']}`} onClick={() => deleteTodo(id)} disabled={completed}>
+      <button className={`${Style.btn} ${Style['btn-danger']}`} onClick={() => deleteTodo(id)} disabled={completed}>
         Delete
       </button>
     </li>

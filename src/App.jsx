@@ -20,7 +20,7 @@ function App() {
             setIsSidebarOpen(menuOpen);
           }}
         />
-        <div
+        <main
           className={`content-container ${
             isSidebarOpen ? "expanded" : "collapsed"
           }`}
@@ -46,7 +46,7 @@ function App() {
             />
             <Route exact path={"/cardgames"} element="coming soon.." />
           </Routes>
-        </div>
+        </main>
       </div>
     </Router>
   );
