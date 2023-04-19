@@ -12,7 +12,7 @@ export default function NotesSidebar({
     <div className={`${Style['app-sidebar']}`}>
       <div className={`${Style['app-sidebar-header']}`}>
         <h1>Notes</h1>
-        <button onClick={addNote}>Add</button>
+        <button className={`${Style['note-btn']}`} onClick={addNote}>Add</button>
       </div>
       <div className={`${Style['app-sidebar-notes']}`}>
         {notes.map((note) => (
@@ -22,7 +22,7 @@ export default function NotesSidebar({
           >
             <div className={`${Style['sidebar-note-title']}`}>
               <strong>{note.title}</strong>
-              <button onClick={() => deleteNote(note.id)}>delete</button>
+              <button className={`${Style['note-btn']}`} onClick={() => deleteNote(note.id)}>delete</button>
             </div>
             <p>{note.body && note.body.substr(0, 25) + "..."}</p>
             <small className={`${Style['note-meta']}`}>

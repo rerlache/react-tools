@@ -6,6 +6,7 @@ import Calculator from "./features/calculator/Calculator";
 import Notes from "./features/notes/Notes";
 import PomodoroTimer from "./features/timer/PomodoroTimer";
 import SettingsContextProvider from "./features/timer/context/settingsContext";
+import QRCode from "./features/qrcode/QRCode";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -32,7 +33,7 @@ function App() {
             <Route
               exact
               path={"/qrcode"}
-              element={"qr code generator comming soon ..."}
+              element={<QRCode />}
             />
             <Route
               exact

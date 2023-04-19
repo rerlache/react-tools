@@ -18,6 +18,8 @@ for markdown presentation:<br>
 `npm install react-markdown@latest`
 for the timer:<br>
 `npm install react-countdown-circle-timer@latest`
+for qr code:<br>
+`npm install react-qr-code@latest`
 
 ## inspired by
 ### Todo app
