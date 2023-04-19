@@ -1,4 +1,4 @@
-@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+/*@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");*/
 
 * {
   box-sizing: border-box;
@@ -29,10 +29,6 @@ button {
 }
 button:hover {
   color: #04c;
-}
-
-.App {
-  display: flex;
 }
 
 /* SIDEBAR STYLES */

@@ -34,7 +34,7 @@ code {
 
 .timer-container {
   display: flex;
-  flex: 2;
+  flex:auto;
   align-items: center;
   justify-content: center;
 }
@@ -52,7 +52,7 @@ code {
   box-shadow: 1rem 1.5rem 2rem rgba(0, 0, 0, 0.6);
 }
 
-button {
+.timer-btn {
   color: #efefef;
   font-size: 0.8rem;
   padding: 0.5rem 1.2rem;

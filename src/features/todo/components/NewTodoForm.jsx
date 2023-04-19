@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Style from '../todo.module.css'
 
 function NewTodoForm({ onSubmit }) {
   const [newItem, setNewItem] = useState("");
@@ -11,8 +12,8 @@ function NewTodoForm({ onSubmit }) {
   }
 
   return (
-    <form className="new-item-form" onSubmit={handleSubmit}>
-      <label htmlFor="item" className="form-row">
+    <form className={`${Style['new-item-form']}`} onSubmit={handleSubmit}>
+      <label htmlFor="item" className={`${Style['form-row']}`}>
         New Item
       </label>
       <input
@@ -21,7 +22,7 @@ function NewTodoForm({ onSubmit }) {
         type="text"
         id="item"
       />
-      <button className="btn" disabled={newItem === ""}>Add</button>
+      <button className={`${Style['btn']}`} disabled={newItem === ""}>Add</button>
     </form>
   );
 }

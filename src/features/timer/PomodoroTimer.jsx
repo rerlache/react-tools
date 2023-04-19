@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import "./timer.css";
+import Style from "./timer.module.css";
 import TimerSettings from "./components/timerSettings";
 import CountdownAnimation from "./components/countdownAnimation";
 import TimerButton from "./components/timerButton";
@@ -21,39 +21,39 @@ export default function PomodoroTimer() {
   useEffect(() => {updateExecute(executing)}, [executing, startAnimate])
 
   return (
-    <div className="pomodoro-container">
-      <div className="top-section">
+    <div className={`${Style['pomodoro-container']}`}>
+      <div className={`${Style['top-section']}`}>
         <h1>Pomodoro Timer</h1>
         <small>Be productive the right way</small>
       </div>
       {pomodoro !== 0 ? (
         <>
-          <ul className="labels">
+          <ul className={`${Style.labels}`}>
             <li>
               <TimerButton
                 title="Work"
-                activeClass={executing.active === "work" && "active-label"}
+                activeClass={executing.active === "work" && `${Style['active-label']}`}
                 _callback={() => setCurrentTimer("work")}
               />
             </li>
             <li>
               <TimerButton
                 title="Short Break"
-                activeClass={executing.active === "short" && "active-label"}
+                activeClass={executing.active === "short" && `${Style['active-label']}`}
                 _callback={() => setCurrentTimer("short")}
               />
             </li>
             <li>
               <TimerButton
                 title="Long Break"
-                activeClass={executing.active === "long" && "active-label"}
+                activeClass={executing.active === "long" && `${Style['active-label']}`}
                 _callback={() => setCurrentTimer("long")}
               />
             </li>
           </ul>
           <TimerButton title="Settings" _callback={SettingsBtn} />
-          <div className="timer-container">
-            <div className="time-wrapper">
+          <div className={`${Style['timer-container']}`}>
+            <div className={`${Style['time-wrapper']}`}>
               <CountdownAnimation
                 key={pomodoro}
                 timer={pomodoro}
@@ -63,15 +63,15 @@ export default function PomodoroTimer() {
               </CountdownAnimation>
             </div>
           </div>
-          <div className="button-wrapper">
+          <div className={`${Style['button-wrapper']}`}>
             <TimerButton
               title="Start"
-              className={!startAnimate && "active-label"}
+              className={!startAnimate && `${Style['active-label']}`}
               _callback={startTimer}
             />
             <TimerButton
               title="Pause"
-              className={startAnimate && "active-label"}
+              className={startAnimate && `${Style['active-label']}`}
               _callback={pauseTimer}
             />
           </div>

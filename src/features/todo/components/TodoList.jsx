@@ -1,8 +1,9 @@
 import TodoItem from "./TodoItem";
+import Style from '../todo.module.css'
 
 function TodoList({ list, toggleTodo, deleteTodo, filter }) {
   return (
-    <ul className="list">
+    <ul className={`${Style['list']}`}>
       {list.length === 0 && filter === "all"
         ? "Nothing Todo!"
         : filter === "done"

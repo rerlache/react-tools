@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import NewTodoForm from "./components/NewTodoForm";
 import TodoList from "./components/TodoList";
-import "./style.css";
+import Style from "./todo.module.css";
 
 function Todo() {
   const [todos, setTodos] = useState(() => {
@@ -43,14 +43,14 @@ function Todo() {
   return (
     <>
       <NewTodoForm onSubmit={addTodo} />
-      <h1 className="header">ToDo List</h1>
+      <h1 className={`${Style['header']}`}>ToDo List</h1>
       <TodoList
         list={todos.filter((todo) => todo.completed === false)}
         toggleTodo={toggleTodo}
         deleteTodo={deleteTodo}
         filter="all"
       />
-      <h1 className="header">ToDo's done</h1>
+      <h1 className={`${Style['header']}`}>ToDo's done</h1>
       <TodoList
         list={todos.filter((todo) => todo.completed)}
         toggleTodo={toggleTodo}

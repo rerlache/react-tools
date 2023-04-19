@@ -1,6 +1,8 @@
+import Style from '../todo.module.css'
+
 function TodoItem({ id, title, completed, toggleTodo, deleteTodo }) {
   return (
-    <li key={id} className="listitem">
+    <li key={id} className={`${Style['listitem']}`}>
       <label>
         <input
           onChange={(e) => toggleTodo(id, e.target.checked)}
@@ -10,10 +12,10 @@ function TodoItem({ id, title, completed, toggleTodo, deleteTodo }) {
         />
         {title}
       </label>
-      <button className="btn btn-info" disabled={completed}>
+      <button className={`btn ${Style['btn-info']}`} disabled={completed}>
         Edit
       </button>
-      <button className="btn btn-danger" onClick={() => deleteTodo(id)} disabled={completed}>
+      <button className={`btn ${Style['btn-danger']}`} onClick={() => deleteTodo(id)} disabled={completed}>
         Delete
       </button>
     </li>

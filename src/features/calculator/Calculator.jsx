@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import DigitButton from "./components/digitButton";
 import OperationButton from "./components/operationButton";
-import "./style.css";
+import Style from "./calculator.module.css";
 
 export const ACTIONS = {
   ADD_DIGIT: "add-digit",
@@ -11,15 +11,15 @@ export const ACTIONS = {
   EVALUATE: "evaluate",
 };
 
-const INTEGER_FORMATTER = new Intl.NumberFormat('en-US', {
-    maximumFractionDigits: 0
-})
+const INTEGER_FORMATTER = new Intl.NumberFormat("en-US", {
+  maximumFractionDigits: 0,
+});
 
-function formatOperand(operand){
-    if(operand == null) return
-    const [integer, decimal] = operand.split('.')
-    if(decimal == null) return INTEGER_FORMATTER.format(integer)
-    return `${INTEGER_FORMATTER.format(integer)}.${decimal}`
+function formatOperand(operand) {
+  if (operand == null) return;
+  const [integer, decimal] = operand.split(".");
+  if (decimal == null) return INTEGER_FORMATTER.format(integer);
+  return `${INTEGER_FORMATTER.format(integer)}.${decimal}`;
 }
 
 function reducer(state, { type, payload }) {
@@ -78,7 +78,7 @@ function reducer(state, { type, payload }) {
       }
       return {
         ...state,
-        overwrite:true,
+        overwrite: true,
         previousOperand: null,
         currentOperand: evaluate(state),
         operation: null,
@@ -135,20 +135,25 @@ export default function Calculator() {
     {}
   );
   return (
-    <div id="calculator-container" className="calculator-grid">
-      <div className="output">
-        <div className="previous-operand">
+    <div id={`${Style["calculator-container"]}`} className={`${Style["calculator-grid"]}`}>
+      <div className={`${Style["output"]}`}>
+        <div className={`${Style["previous-operand"]}`}>
           {formatOperand(previousOperand)} {operation}
         </div>
-        <div className="current-operand">{formatOperand(currentOperand)}</div>
+        <div className={`${Style["current-operand"]}`}>
+          {formatOperand(currentOperand)}
+        </div>
       </div>
       <button
-        className="span-two"
+        className={`${Style["calculator-btn"]} ${Style["span-two"]}`}
         onClick={() => dispatch({ type: ACTIONS.CLEAR })}
       >
         AC
       </button>
-      <button onClick={() => dispatch({ type: ACTIONS.DELETE_DIGIT })}>
+      <button
+        onClick={() => dispatch({ type: ACTIONS.DELETE_DIGIT })}
+        className={`${Style["calculator-btn"]}`}
+      >
         DEL
       </button>
       <OperationButton operation="/" dispatch={dispatch} />
@@ -167,7 +172,7 @@ export default function Calculator() {
       <DigitButton digit="." dispatch={dispatch} />
       <DigitButton digit="0" dispatch={dispatch} />
       <button
-        className="span-two"
+        className={`${Style["calculator-btn"]} ${Style["span-two"]}`}
         onClick={() => dispatch({ type: ACTIONS.EVALUATE })}
       >
         =

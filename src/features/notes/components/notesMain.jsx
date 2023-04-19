@@ -1,5 +1,5 @@
 import ReactMarkdown from "react-markdown";
-import "../notes.css";
+import Style from "../notes.module.css";
 
 export default function NotesMain({ activeNote, updateNote }) {
   function editField(key, value) {
@@ -10,10 +10,10 @@ export default function NotesMain({ activeNote, updateNote }) {
     });
   }
   if (!activeNote)
-    return <div className="no-active-note">No note selected</div>;
+    return <div className={`${Style['no-active-note']}`}>No note selected</div>;
   return (
-    <div className="app-main">
-      <div className="app-main-note-edit">
+    <div className={`${Style['app-main']}`}>
+      <div className={`${Style['app-main-note-edit']}`}>
         <input
           type="text"
           id="title"
@@ -28,9 +28,9 @@ export default function NotesMain({ activeNote, updateNote }) {
           onChange={(e) => editField("body", e.target.value)}
         />
       </div>
-      <div className="app-main-note-preview">
-        <h1 className="preview-title">{activeNote.title}</h1>
-        <ReactMarkdown className="markdown-preview">{activeNote.body}</ReactMarkdown>
+      <div className={`${Style['app-main-note-preview']}`}>
+        <h1 className={`${Style['preview-title']}`}>{activeNote.title}</h1>
+        <ReactMarkdown className={`${Style['markdown-preview']}`}>{activeNote.body}</ReactMarkdown>
       </div>
     </div>
   );

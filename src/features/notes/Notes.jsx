@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NotesSidebar from "./components/notesSidebar";
 import NotesMain from "./components/notesMain";
-import "./notes.css";
 
 export default function Notes() {
   const [notes, setNotes] = useState(localStorage.NOTES ? JSON.parse(localStorage.NOTES) : []);
