@@ -2,6 +2,7 @@ import * as AiIcons from 'react-icons/ai/'
 import * as BiIcons from "react-icons/bi/";
 import * as GiIcons from "react-icons/gi/";
 import * as RxIcons from "react-icons/rx/";
+import * as TiIcons from 'react-icons/ti/'
 
 export const SidebarData = [
   {
@@ -39,6 +40,12 @@ export const SidebarData = [
     title: "QR Code Generator",
     icon: <AiIcons.AiOutlineQrcode className="menu-item-icon" />,
     link: "/qrcode",
+  },
+  {
+    id: 7,
+    title: "Weather",
+    icon: <TiIcons.TiWeatherPartlySunny className="menu-item-icon" />,
+    link: "/weather",
   },
   {
     id: 6,

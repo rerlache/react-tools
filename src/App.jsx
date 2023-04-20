@@ -7,6 +7,7 @@ import Notes from "./features/notes/Notes";
 import PomodoroTimer from "./features/timer/PomodoroTimer";
 import SettingsContextProvider from "./features/timer/context/settingsContext";
 import QRCode from "./features/qrcode/QRCode";
+import Weather from "./features/weather/Weather";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -30,6 +31,7 @@ function App() {
             <Route exact path={"/todo"} element={<Todo />} />
             <Route exact path={"/calculator"} element={<Calculator />} />
             <Route exact path={"/notes"} element={<Notes />} />
+            <Route exact path={"/weather"} element={<Weather />} />
             <Route
               exact
               path={"/qrcode"}

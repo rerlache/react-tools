@@ -1,0 +1,31 @@
+{
+  "coord": { "lon": 11.3945, "lat": 47.2627 },
+  "weather": [
+    { "id": 500, "main": "Rain", "description": "light rain", "icon": "10d" }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 285.88,
+    "feels_like": 284.96,
+    "temp_min": 281.08,
+    "temp_max": 286.18,
+    "pressure": 1009,
+    "humidity": 67
+  },
+  "visibility": 10000,
+  "wind": { "speed": 4.63, "deg": 110 },
+  "rain": { "1h": 0.11 },
+  "clouds": { "all": 40 },
+  "dt": 1682009475,
+  "sys": {
+    "type": 1,
+    "id": 6872,
+    "country": "AT",
+    "sunrise": 1681964260,
+    "sunset": 1682014126
+  },
+  "timezone": 7200,
+  "id": 2775220,
+  "name": "Innsbruck",
+  "cod": 200
+}
