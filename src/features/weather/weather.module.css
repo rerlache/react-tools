@@ -11,6 +11,7 @@
   margin: auto;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
 }
 .weather-wrapper::before {
   content: " ";
@@ -31,6 +32,10 @@
   padding: 0.75rem;
   font-size: 1.25rem;
   border-radius: 2rem;
+  width: 75%;
+}
+.placeholder-container {
+  height: 50%;
 }
 .weather-information {
   margin-top: 3rem;

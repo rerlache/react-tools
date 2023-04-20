@@ -41,8 +41,8 @@ export default function Weather() {
         location={location}
         setLocation={setLocation}
       />
-      {data.main ? <WeatherInformation data={data} /> : null}
-      {data.main ? <WeatherFooter data={data} /> : null}
+      {data.main ? <WeatherInformation data={data} /> : <div style={{height: '271px', marginTop: '48px'}} />}
+      {data.main ? <WeatherFooter data={data} /> : <div style={{height: '80px', marginTop: '48px', marginBottom: '48px'}} />}
     </div>
   );
 }
