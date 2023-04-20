@@ -20,6 +20,8 @@ for the timer:<br>
 `npm install react-countdown-circle-timer@latest`
 for qr code:<br>
 `npm install react-qr-code@latest`
+for api code fetching:<br>
+`npm install axios@latest`
 
 ## inspired by
 ### Todo app
