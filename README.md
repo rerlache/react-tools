@@ -30,3 +30,5 @@ __Web Dev Simplified__ [The Perfect Beginner React Project](https://youtu.be/DgR
 __James Grimshaw__ [Youtube: build a Notes App with React.js](https://youtu.be/ulOKYl5sHGk)
 ### timer app
 __Coding With Siphiwo__ [Create a Pmodoro Clock in React with the Context API](https://youtu.be/0PnSEPm2UKY)
+### weather app
+__Code Commerce__ [Build A React JS Weather App - OpenWeatherMap API - Tutorial](https://youtu.be/UjeXpct3p7M)
