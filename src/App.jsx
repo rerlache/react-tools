@@ -32,22 +32,24 @@ function App() {
           }`}
         >
           <Routes>
-            <Route path={"/"} element="Hello world!" />
-            <Route path={"/todo"} element={<Todo />} />
-            <Route path={"/calculator"} element={<Calculator />} />
-            <Route path={"/notes"} element={<Notes />} />
-            <Route path={"/weather"} element={<Weather />} />
-            <Route path={"/qrcode"} element={<QRCode />} />
+            <Route exact path={"/"} element="Hello world!" />
+            <Route exact path={"/todo"} element={<Todo />} />
+            <Route exact path={"/calculator"} element={<Calculator />} />
+            <Route exact path={"/notes"} element={<Notes />} />
+            <Route exact path={"/weather"} element={<Weather />} />
+            <Route exact path={"/qrcode"} element={<QRCode />} />
             <Route
+              exact
               path={"/timer"}
               element={
                 <SettingsContextProvider>
-                  <PomodoroTimer />
+                  {" "}
+                  <PomodoroTimer />{" "}
                 </SettingsContextProvider>
               }
             />
-            <Route path={"/cardgames"} element="coming soon.." />
-            <Route path="*" element={<Navigate to="/weather" replace />} />
+            <Route exact path={"/cardgames"} element="coming soon.." />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
       </div>
