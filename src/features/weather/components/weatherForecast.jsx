@@ -4,8 +4,11 @@ import Style from "../weather.module.css";
 export default function WeatherForecast({ data }) {
   return (
     <>
-      <table>
-        <thead>
+      <table className={`${Style["weather-table"]}`}>
+        <caption>
+          3 hour 5 day forecast for: {data.city.name}, {data.city.country}
+        </caption>
+        <thead className={`${Style["table-header"]}`}>
           <tr>
             <th>Time</th>
             <th>Condition</th>
@@ -20,21 +23,25 @@ export default function WeatherForecast({ data }) {
         </thead>
         <tbody>
           {data.list.map((item) => (
-            <tr key={item.dt}>
-              <td>{dayjs.unix(item.dt).format("DD.MMM HH:mm")}</td>
-              <td>
+            <tr key={item.dt} className={`${Style["info-row"]}`}>
+              <td data-cell="time">
+                {dayjs.unix(item.dt).format("DD.MMM HH:mm")}
+              </td>
+              <td data-cell="condition" className={`${Style["weather-cell"]}`}>
                 <img
                   src={`https://openweathermap.org/img/wn/${item.weather[0].icon}.png`}
                 />{" "}
                 {item.weather[0].description}
               </td>
-              <td>{item.clouds.all}%</td>
-              <td>{item.main.temp}&deg;C</td>
-              <td>{item.main.feels_like}&deg;C</td>
-              <td>{item.main.temp_min}&deg;C</td>
-              <td>{item.main.temp_max}&deg;C</td>
-              <td>{item.main.humidity}%</td>
-              <td>{Math.round(item.pop * 100)}% rain</td>
+              <td data-cell="clouds">{item.clouds.all}%</td>
+              <td data-cell="temperature">{item.main.temp}&deg;C</td>
+              <td data-cell="feels like">{item.main.feels_like}&deg;C</td>
+              <td data-cell="min temp">{item.main.temp_min}&deg;C</td>
+              <td data-cell="max temp">{item.main.temp_max}&deg;C</td>
+              <td data-cell="humidity">{item.main.humidity}%</td>
+              <td data-cell="rain chance">
+                {Math.round(item.pop * 100)}% rain
+              </td>
             </tr>
           ))}
         </tbody>
