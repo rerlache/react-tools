@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Todo from "./features/todo/Todo";
 import Calculator from "./features/calculator/Calculator";
@@ -47,6 +47,7 @@ function App() {
               }
             />
             <Route exact path={"/cardgames"} element="coming soon.." />
+            <Route path="*" element={<Navigate to="/weather" replace />} />
           </Routes>
         </main>
       </div>
