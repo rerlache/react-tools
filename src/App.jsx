@@ -15,6 +15,7 @@ import QRCode from "./features/qrcode/QRCode";
 import Weather from "./features/weather/Weather";
 import CardWar from "./features/games/cardwar/CardWar";
 import BlackJack from "./features/games/blackjack/BlackJack";
+import Game2048 from "./features/games/2048/2048";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -49,6 +50,8 @@ function App() {
                 </SettingsContextProvider>
               }
             />
+            <Route exact path={"/games"} element="coming soon.." />
+            <Route exact path={"/games/2048"} element={<Game2048 />} />
             <Route exact path={"/cardgames"} element="coming soon.." />
             <Route exact path={"/cardgames/cardwar"} element={<CardWar />} />
             <Route exact path={"/cardgames/blackjack"} element={<BlackJack />} />
