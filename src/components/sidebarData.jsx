@@ -34,6 +34,12 @@ export const SidebarData = [
     title: "Timer",
     icon: <RxIcons.RxLapTimer className="menu-item-icon" />,
     link: "/timer",
+    subitems: [{
+      id: 400,
+      title: "Pomodoro",
+      icon: <RxIcons.RxTimer className='submenu-item-icon' />,
+      link: "/timer/pomodoro"
+    }]
   },
   {
     id: 5,
@@ -48,13 +54,13 @@ export const SidebarData = [
     link: "/cardgames",
     subitems: [
       {
-        id: 100,
+        id: 600,
         title: "Card-War",
         icon: <GiIcons.GiCardRandom className="submenu-item-icon" />,
         link: "/cardgames/cardwar",
       },
       {
-        id: 101,
+        id: 601,
         title: "Black Jack",
         icon: <GiIcons.GiCardAceHearts className="submenu-item-icon" />,
         link: "/cardgames/blackjack",

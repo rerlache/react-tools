@@ -13,6 +13,8 @@ import PomodoroTimer from "./features/timer/PomodoroTimer";
 import SettingsContextProvider from "./features/timer/context/settingsContext";
 import QRCode from "./features/qrcode/QRCode";
 import Weather from "./features/weather/Weather";
+import CardWar from "./features/games/cardwar/CardWar";
+import BlackJack from "./features/games/blackjack/BlackJack";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -38,17 +40,18 @@ function App() {
             <Route exact path={"/notes"} element={<Notes />} />
             <Route exact path={"/weather"} element={<Weather />} />
             <Route exact path={"/qrcode"} element={<QRCode />} />
+            <Route exact path={"/timer"} element="select timer" />
             <Route
-              exact
-              path={"/timer"}
+              path={"/timer/pomodoro"}
               element={
                 <SettingsContextProvider>
-                  {" "}
-                  <PomodoroTimer />{" "}
+                  <PomodoroTimer />
                 </SettingsContextProvider>
               }
             />
             <Route exact path={"/cardgames"} element="coming soon.." />
+            <Route exact path={"/cardgames/cardwar"} element={<CardWar />} />
+            <Route exact path={"/cardgames/blackjack"} element={<BlackJack />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
