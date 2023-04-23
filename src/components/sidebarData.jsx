@@ -42,12 +42,6 @@ export const SidebarData = [
     link: "/qrcode",
   },
   {
-    id: 7,
-    title: "Weather",
-    icon: <TiIcons.TiWeatherPartlySunny className="menu-item-icon" />,
-    link: "/weather",
-  },
-  {
     id: 6,
     title: "Card Games",
     icon: <GiIcons.GiCardDraw className="menu-item-icon" />,
@@ -66,5 +60,11 @@ export const SidebarData = [
         link: "/cardgames/blackjack",
       },
     ],
+  },
+  {
+    id: 7,
+    title: "Weather",
+    icon: <TiIcons.TiWeatherPartlySunny className="menu-item-icon" />,
+    link: "/weather",
   },
 ];

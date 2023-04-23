@@ -82,13 +82,19 @@
   margin-left: auto;
 }
 .submenu-container {
-  display: inline-block;
+  display: contents;
   position: absolute;
   margin: 0 5px 0 5px;
-  top: 40;
   left: 0;
   background-color: var(--main-bg-color);
   width: calc(100% - 10px);
+}
+.submenu-container ul{
+  border-width: 0 1px 1px;
+  border-style: dotted;
+  border-radius: 0 0 5px 5px;
+  background-color: var(--third-bg-color);
+  margin-top: -3px;
 }
 .submenu-container .submenu-item {
   color: var(--main-foreground-color);
