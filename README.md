@@ -1,11 +1,16 @@
 # react-tools
 Simple and handy tools.
 ## feature ideas
+[public api's](https://github.com/public-apis/public-apis) may help find more ideas
 - game: pong clone
+- game: 2048
+- tool: unit converter (https://akshayanandraut.github.io/api-unit-converter/)
+- tool: currency converter (https://www.youtube.com/watch?v=XN5elYWiSuw - https://github.com/fawazahmed0/currency-api)
+- GoT infos -> https://github.com/aiwebb/node-api-iceandfire
+- tool: pokedex (https://pokeapi.co/docs/v2)
 
 ## rework todo
 - sidebar refinement
-  - submenu doesn't move the next item down
   - add game clones
 - css rework
 - update readme inspired section
