@@ -15,6 +15,7 @@ import QRCode from "./features/qrcode/QRCode";
 import Weather from "./features/weather/Weather";
 import CardWar from "./features/games/cardwar/CardWar";
 import BlackJack from "./features/games/blackjack/BlackJack";
+import GameOfThrones from "./features/got/GameOfThrones";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -40,6 +41,7 @@ function App() {
             <Route exact path={"/notes"} element={<Notes />} />
             <Route exact path={"/weather"} element={<Weather />} />
             <Route exact path={"/qrcode"} element={<QRCode />} />
+            <Route exact path={"/got"} element={<GameOfThrones />} />
             <Route exact path={"/timer"} element="select timer" />
             <Route
               path={"/timer/pomodoro"}
