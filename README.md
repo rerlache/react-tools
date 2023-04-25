@@ -39,3 +39,6 @@ __James Grimshaw__ [Youtube: build a Notes App with React.js](https://youtu.be/u
 __Coding With Siphiwo__ [Create a Pmodoro Clock in React with the Context API](https://youtu.be/0PnSEPm2UKY)
 ### weather app
 __Code Commerce__ [Build A React JS Weather App - OpenWeatherMap API - Tutorial](https://youtu.be/UjeXpct3p7M)
+### GoT app
+#### quotes
+__GameOfThronesQuotesAPI__ [A free API to retrieve some quotes of Game of Thrones!](https://gameofthronesquotes.xyz/)
