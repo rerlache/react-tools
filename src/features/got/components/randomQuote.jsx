@@ -5,19 +5,20 @@ import Style from "../got.module.css";
 const URL = "https://api.gameofthronesquotes.xyz/v1/random/";
 
 export default function RandomQuote() {
-  const [randomQuote, setRandomQuote] = useState();
+  const [randomQuote, setRandomQuote] = useState(null);
 
   useEffect(() => {
     fetchRandomQuote();
   }, []);
 
-  async function fetchRandomQuote() {
-    const response = await axios.get(URL);
-    if (response.status === 200) {
-      console.log(response.data);
-      setRandomQuote(response.data);
+  const fetchRandomQuote = async () => {
+    try {
+      const response = await axios.get(URL);
+      setRandomQuote(await response.data);
+    } catch (error) {
+      console.error(error);
     }
-  }
+  };
 
   return (
     <>
