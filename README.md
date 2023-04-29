@@ -1,11 +1,16 @@
 # react-tools
 Simple and handy tools.
 ## feature ideas
+[public api's](https://github.com/public-apis/public-apis) may help find more ideas
 - game: pong clone
+- game: 2048
+- tool: unit converter (https://akshayanandraut.github.io/api-unit-converter/)
+- tool: currency converter (https://www.youtube.com/watch?v=XN5elYWiSuw - https://github.com/fawazahmed0/currency-api)
+- GoT infos -> https://github.com/aiwebb/node-api-iceandfire
+- tool: pokedex (https://pokeapi.co/docs/v2)
 
 ## rework todo
 - sidebar refinement
-  - submenu doesn't move the next item down
   - add game clones
 - css rework
 - update readme inspired section
@@ -34,3 +39,6 @@ __James Grimshaw__ [Youtube: build a Notes App with React.js](https://youtu.be/u
 __Coding With Siphiwo__ [Create a Pmodoro Clock in React with the Context API](https://youtu.be/0PnSEPm2UKY)
 ### weather app
 __Code Commerce__ [Build A React JS Weather App - OpenWeatherMap API - Tutorial](https://youtu.be/UjeXpct3p7M)
+### GoT app
+#### quotes
+__GameOfThronesQuotesAPI__ [A free API to retrieve some quotes of Game of Thrones!](https://gameofthronesquotes.xyz/)
