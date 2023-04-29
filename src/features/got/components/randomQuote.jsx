@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Style from "../got.module.css";
+import { GotContext } from "../context/gotContext";
 
 const URL = "https://api.gameofthronesquotes.xyz/v1/random/";
 
 export default function RandomQuote() {
   const [randomQuote, setRandomQuote] = useState(null);
+
+  const { setHouse, setCharacter, setHouseDataLoaded, setCharDataLoaded } = useContext(GotContext);
 
   useEffect(() => {
     fetchRandomQuote();
@@ -15,6 +18,10 @@ export default function RandomQuote() {
     try {
       const response = await axios.get(URL);
       setRandomQuote(await response.data);
+      setCharDataLoaded(false)
+      setHouseDataLoaded(false)
+      setCharacter(response.data.character);
+      setHouse(response.data.character.house);
     } catch (error) {
       console.error(error);
     }

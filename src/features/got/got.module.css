@@ -33,6 +33,9 @@
 .sub-header{
     font-size: 1rem;
 }
+.random-quote-container {
+    border-bottom: 1px dashed;
+}
 .quote-container {
     font-family: 'Courier New', Courier, monospace;
     width: 75%;
@@ -76,7 +79,31 @@
     display: block;
 }
 
-
+/* Info Styles */
+.info-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 50%);
+    margin: 2rem 0;
+}
+.info-container .search-container{
+    grid-column: span 2;
+} 
+.house-container ul{
+    list-style: none;
+}
+.house-container .house-name{
+    font-weight: bold;
+}
+.character-container{
+    display: block;
+}
+.character-container .character-details{
+    font-family: 'Outfit';
+}
+.house-member {
+    font-family: 'Outfit';
+    margin-left: 1rem;
+}
 
 
 
