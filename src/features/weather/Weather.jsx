@@ -11,7 +11,7 @@ export default function Weather() {
   const [forecast, setForecast] = useState({});
   const [location, setLocation] = useState("");
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=9149c70f3d7a3ddd0e4e307e7b66ee58`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${import.meta.env.VITE_WEATHER_API_KEY}`;
 
   function searchLocation(e) {
     if (e.key === "Enter") {
