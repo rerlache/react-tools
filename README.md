@@ -13,12 +13,15 @@ Simple and handy tools.
 - sidebar refinement
   - add game clones
 - css rework
+  - responsive design
 - update readme inspired section
 ## installed packages:
 for icons:<br>
 `npm install react-icons@latest`
 for routing/navigation:<br>
 `npm install react-router-dom@latest`
+for loading spinners:<br>
+`npm install react-spinners@latest`
 for markdown presentation:<br>
 `npm install react-markdown@latest`
 for the timer:<br>
