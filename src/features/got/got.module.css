@@ -82,8 +82,9 @@
 /* Info Styles */
 .info-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 50%);
+    grid-template-columns: 40% 60%;
     margin: 2rem 0;
+    width: 75%;
 }
 .info-container .search-container{
     grid-column: span 2;
@@ -104,7 +105,16 @@
     font-family: 'Outfit';
     margin-left: 1rem;
 }
-
+.house-sub-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.house-banner{
+    max-width: 100px;
+    max-height: 100px;
+    aspect-ratio: 1;
+}
 
 
 /* GoT Icon Stylings */

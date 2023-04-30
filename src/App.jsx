@@ -16,6 +16,7 @@ import Weather from "./features/weather/Weather";
 import CardWar from "./features/games/cardwar/CardWar";
 import BlackJack from "./features/games/blackjack/BlackJack";
 import GameOfThrones from "./features/got/GameOfThrones";
+import Home from "./components/Home";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -35,7 +36,7 @@ function App() {
           }`}
         >
           <Routes>
-            <Route exact path={"/"} element="Hello world!" />
+            <Route exact path={"/"} element={<Home />} />
             <Route path={"/todo"} element={<Todo />} />
             <Route path={"/calculator"} element={<Calculator />} />
             <Route path={"/notes"} element={<Notes />} />

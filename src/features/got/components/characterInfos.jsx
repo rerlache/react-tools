@@ -36,6 +36,11 @@ export default function CharacterInfos() {
   return (
     <div className={`${Style["character-container"]}`}>
       {!charDataLoaded && "Infos are comming..."}
+      {!characterDetails && (
+        <div className={`${Style["got-font"]}`}>
+          No Character Data available.
+        </div>
+      )}
       {characterDetails && (
         <>
           <h3 className={`${Style["character-name"]} ${Style["got-font"]}`}>
