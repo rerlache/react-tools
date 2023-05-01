@@ -7,6 +7,7 @@ export default function Game2048() {
   return (
     <div className={`${Style['game2048-container']}`}>
       <h1>2048</h1>
+      <div>Game is in progress.</div>
       <Board />
     </div>
   );
