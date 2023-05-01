@@ -52,7 +52,7 @@ export const SidebarData = [
   },
   {
     id: 6,
-    title: "Card Games",
+    title: "Games",
     icon: <GiIcons.GiCardDraw className="menu-item-icon" />,
     link: "/cardgames",
     subitems: [
@@ -67,6 +67,12 @@ export const SidebarData = [
         title: "Black Jack",
         icon: <GiIcons.GiCardAceHearts className="submenu-item-icon" />,
         link: "/cardgames/blackjack",
+      },
+      {
+        id: 602,
+        title: "2048",
+        icon: <GiIcons.GiCardAceHearts className="submenu-item-icon" />,
+        link: "/games/2048",
       },
     ],
   },

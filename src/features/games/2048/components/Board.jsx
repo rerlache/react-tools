@@ -1,71 +1,75 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Style from "../2048.module.css";
 import Tile from "./Tile";
-import Cell from "./Cell";
-import GameOverlay from "./GameOverlay";
-import { Board } from "../helper";
-import useEvent from "../hooks/useEvent";
-import Style from '../2048.module.scss'
 
-const BoardView = () => {
-  const [board, setBoard] = useState(new Board());
+const GRID_SIZE = 4;
+const CELL_SIZE = "10vmin";
+const CELL_GAP = "1.5vmin";
 
-  const handleKeyDown = (event) => {
-    if (board.hasWon()) {
-      return;
+export function getCells(){
+  return Board.cells
+}
+
+export default function Board() {
+  const [cells, setCells] = useState([]);
+  useEffect(() => {
+    if (cells.length < GRID_SIZE * GRID_SIZE) {
+      createCells();
     }
-
-    if (event.keyCode >= 37 && event.keyCode <= 40) {
-      let direction = event.keyCode - 37;
-      let boardClone = Object.assign(
-        Object.create(Object.getPrototypeOf(board)),
-        board
-      );
-      let newBoard = boardClone.move(direction);
-      setBoard(newBoard);
+  }, []);
+  function createCells() {
+    for (let i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
+      const cell = new Cell(i, i % GRID_SIZE, Math.floor(i / GRID_SIZE));
+      setCells((cells) => [...cells, cell]);
     }
-  };
-
-  useEvent("keydown", handleKeyDown);
-
-  const cells = board.cells.map((row, rowIndex) => {
-    console.log(row)
-    return (
-      <div key={rowIndex}>
-        {row.map((col, colIndex) => {
-          return <Cell key={rowIndex * board.size + colIndex} />;
-        })}
-      </div>
-    );
-  });
-
-  const tiles = board.tiles
-    .filter((tile) => tile.value !== 0)
-    .map((tile, index) => {
-      return <Tile tile={tile} key={index} />;
-    });
-
-  const resetGame = () => {
-    setBoard(new Board());
-  };
-
+  }
+  function getCellsByRow() {
+    return cells.reduce((cellGrid, cell) => {
+      cellGrid[cell.y] = cellGrid[cell.y] || []
+      cellGrid[cell.y][cell.x] = cell
+      return cellGrid
+    }, [])
+  }
+  function getCellsByColumn() {
+    return cells.reduce((cellGrid, cell) => {
+      cellGrid[cell.x] = cellGrid[cell.x] || []
+      cellGrid[cell.x][cell.y] = cell
+      return cellGrid
+    }, [])
+  }
+  document.documentElement.style.setProperty("--grid-size", GRID_SIZE);
+  document.documentElement.style.setProperty("--cell-size", CELL_SIZE);
+  document.documentElement.style.setProperty("--cell-gap", CELL_GAP);
+  getCellsByRow()
+  getCellsByColumn()
+  console.log(getCellsByColumn())
   return (
-    <div>
-      <div className={`${Style['details-box']}`}>
-        <div className={`${Style['resetButton']}`} onClick={resetGame}>
-          New Game
-        </div>
-        <div className={`${Style['score-box']}`}>
-          <div className={`${Style['score-header']}`}>points</div>
-          <div>{board.score}</div>
-        </div>
-      </div>
-      <div className={`${Style['board']}`}>
-        {cells}
-        {tiles}
-        <GameOverlay onRestart={resetGame} board={board} />
-      </div>
+    <div id={`${Style["game-board"]}`}>
+      {cells.map((cell) => {
+        return <div id={cell.id} key={cell.id} className={Style.cell}></div>
+      })}
     </div>
   );
-};
+}
 
-export default BoardView;
+class Cell {
+  #id;
+  #x;
+  #y;
+
+  constructor(id, x, y) {
+    this.#id = id;
+    this.#x = x;
+    this.#y = y;
+  }
+  get id() {
+    return this.#id;
+  }
+  get x() {
+    return this.#x;
+  }
+
+  get y() {
+    return this.#y;
+  }
+}

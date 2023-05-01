@@ -1,26 +1,58 @@
-import React from "react";
-import Style from '../2048.module.scss'
+export default class Tile {
+  #tileElement
+  #x
+  #y
+  #value
 
-const Tile = ({ tile, id }) => {
-  let classArray = ["tile"];
-  classArray.push("tile" + tile.value);
-  if (!tile.mergedInto) {
-    classArray.push(`position_${tile.row}_${tile.column}`);
-  }
-  if (tile.mergedInto) {
-    classArray.push("merged");
-  }
-  if (tile.isNew()) {
-    classArray.push("new");
-  }
-  if (tile.hasMoved()) {
-    classArray.push(`row_from_${tile.fromRow()}_to_${tile.toRow()}`);
-    classArray.push(`column_from_${tile.fromColumn()}_to_${tile.toColumn()}`);
-    classArray.push("isMoving");
+  constructor(tileContainer, value = Math.random() > 0.5 ? 2 : 4) {
+    this.#tileElement = document.createElement("div")
+    this.#tileElement.classList.add("tile")
+    tileContainer.append(this.#tileElement)
+    this.value = value
   }
 
-  let classes = classArray.join(" ");
-  return <span className={Style.classes}></span>;
-};
+  get value() {
+    return this.#value
+  }
 
-export default Tile;
+  set value(v) {
+    this.#value = v
+    this.#tileElement.textContent = v
+    const power = Math.log2(v)
+    const backgroundLightness = 100 - power * 9
+    this.#tileElement.style.setProperty(
+      "--background-lightness",
+      `${backgroundLightness}%`
+    )
+    this.#tileElement.style.setProperty(
+      "--text-lightness",
+      `${backgroundLightness <= 50 ? 90 : 10}%`
+    )
+  }
+
+  set x(value) {
+    this.#x = value
+    this.#tileElement.style.setProperty("--x", value)
+  }
+
+  set y(value) {
+    this.#y = value
+    this.#tileElement.style.setProperty("--y", value)
+  }
+
+  remove() {
+    this.#tileElement.remove()
+  }
+
+  waitForTransition(animation = false) {
+    return new Promise(resolve => {
+      this.#tileElement.addEventListener(
+        animation ? "animationend" : "transitionend",
+        resolve,
+        {
+          once: true,
+        }
+      )
+    })
+  }
+}

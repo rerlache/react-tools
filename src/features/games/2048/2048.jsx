@@ -1,9 +1,13 @@
-import React from 'react'
-import BoardView from './components/Board'
-import Style from './2048.module.scss'
+import React from "react";
+import Style from './2048.module.css'
+import Board, {getCells} from "./components/Board";
 
 export default function Game2048() {
+    console.log(Board.getCellsByRow)
   return (
-    <div className={`${Style.body}`}><BoardView /></div>
-  )
+    <div className={`${Style['game2048-container']}`}>
+      <h1>2048</h1>
+      <Board />
+    </div>
+  );
 }

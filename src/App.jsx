@@ -17,6 +17,7 @@ import CardWar from "./features/games/cardwar/CardWar";
 import BlackJack from "./features/games/blackjack/BlackJack";
 import GameOfThrones from "./features/got/GameOfThrones";
 import Home from "./components/Home";
+import Game2048 from "./features/games/2048/2048";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -43,6 +44,7 @@ function App() {
             <Route path={"/weather"} element={<Weather />} />
             <Route path={"/qrcode"} element={<QRCode />} />
             <Route path={"/got"} element={<GameOfThrones />} />
+            <Route path={"/games/2048"} element={<Game2048 />} />
             <Route path={"/timer"} element="select timer" />
             <Route
               path={"/timer/pomodoro"}

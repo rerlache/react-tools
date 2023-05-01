@@ -1,8 +1,7 @@
 import React from "react";
-import Style from '../2048.module.scss'
+import Style from '../2048.module.css'
 
-const Cell = ({ id }) => {
-  return <span className={`${Style.cell}`}></span>;
+export default function Cell() {
+  console.log("coordinates", x, y)
+  return <div className={`${Style.cell}`}></div>;
 };
-
-export default Cell;
