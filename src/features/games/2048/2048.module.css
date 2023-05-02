@@ -1,6 +1,4 @@
 .game2048-container {
-  --background-lightness: ;
-  --text-lightness: ;
   --y: ;
   --x: ;
   width: 100%;
@@ -10,7 +8,7 @@
   justify-content: center;
   align-items: center;
   margin: 0;
-  font-size: 7.5vmin;
+  font-size: 4.5vmin;
 }
 .game2048-container > h1{
     text-align: center;
@@ -39,7 +37,6 @@
   align-items: center;
   width: var(--cell-size);
   height: var(--cell-size);
-  background-color: red;
   border-radius: 1vmin;
   top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
   left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
