@@ -4,11 +4,10 @@ export default class Tile {
   #y
   #value
 
-  constructor(value = Math.random() > 0.5 ? 2 : 2048) {
+  constructor(value = Math.random() > 0.5 ? 2 : 4) {
     this.#tileElement = document.createElement("div")
     this.#tileElement.classList.add("tile")
-    this.value = value
-    console.log(this)
+    this.#value = value
   }
 
   get value() {
