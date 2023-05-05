@@ -18,65 +18,64 @@ export default function Board() {
       createCells();
     }
     window.addEventListener("keydown", handleKeyPress);
-  }, []);
+  }, [gameRunning]);
   useEffect(() => {
     console.log(allTiles);
   }, [allCells]);
 
   function handleKeyPress(e) {
-    if (gameRunning) {
-      let tilesToMove;
-      let canMoveUp;
-      let canMoveDown;
-      let canMoveLeft;
-      let canMoveRight;
-      switch (e.key) {
-        case "ArrowUp":
-        case "w":
-          tilesToMove = getCellsByColumn();
-          canMoveUp = canMove(tilesToMove);
-          if (canMoveUp) {
-            slideTiles(tilesToMove);
-          }
-          break;
-        case "ArrowDown":
-        case "s":
-          tilesToMove = getCellsByColumn().map((column) =>
-            [...column].reverse()
-          );
-          canMoveDown = canMove(tilesToMove);
-          if (canMoveDown) {
-            slideTiles(tilesToMove);
-          }
+    let tilesToMove;
+    let canMoveUp;
+    let canMoveDown;
+    let canMoveLeft;
+    let canMoveRight;
+    switch (e.key) {
+      case "ArrowUp":
+      case "w":
+        tilesToMove = getCellsByColumn();
+        canMoveUp = canMove(tilesToMove);
+        if (canMoveUp) {
+          slideTiles(tilesToMove);
+        }
+        break;
+      case "ArrowDown":
+      case "s":
+        tilesToMove = getCellsByColumn().map((column) => [...column].reverse());
+        canMoveDown = canMove(tilesToMove);
+        if (canMoveDown) {
+          slideTiles(tilesToMove);
+        }
 
-          break;
-        case "ArrowLeft":
-        case "a":
-          tilesToMove = getCellsByRow();
-          canMoveLeft = canMove(tilesToMove);
-          if (canMoveLeft) {
-            slideTiles(tilesToMove);
-          }
-          break;
-        case "ArrowRight":
-        case "d":
-          tilesToMove = getCellsByRow().map((row) => [...row].reverse());
-          canMoveRight = canMove(tilesToMove);
-          if (canMoveRight) {
-            slideTiles(tilesToMove);
-          }
-          break;
-      }
-      allCells.forEach((cell) => cell.mergeTiles());
-      const newTile = new Tile();
-      addTileToCell(newTile);
-      if (!canMoveUp && !canMoveDown && !canMoveLeft && !canMoveRight) {
-        newTile.waitForTransition(true).then(() => {
-          alert("You lose");
-        });
-        return;
-      }
+        break;
+      case "ArrowLeft":
+      case "a":
+        tilesToMove = getCellsByRow();
+        canMoveLeft = canMove(tilesToMove);
+        if (canMoveLeft) {
+          slideTiles(tilesToMove);
+        }
+        break;
+      case "ArrowRight":
+      case "d":
+        tilesToMove = getCellsByRow().map((row) => [...row].reverse());
+        canMoveRight = canMove(tilesToMove);
+        if (canMoveRight) {
+          slideTiles(tilesToMove);
+        }
+        break;
+      default:
+        break;
     }
+    allCells.forEach((cell) => cell.mergeTiles());
+    const newTile = new Tile();
+    console.log();
+    if (!canMoveUp && !canMoveDown && !canMoveLeft && !canMoveRight) {
+      newTile.waitForTransition(true).then(() => {
+        alert("You lose");
+      });
+      return;
+    }
+    addTileToCell(newTile);
   }
   function createCells() {
     for (let i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
@@ -110,22 +109,29 @@ export default function Board() {
     cell.tile = tile;
     tile.x = cell.x;
     tile.y = cell.y;
+    if (allTiles.length === 0) setAllTiles([...allTiles, tile]);
     setAllTiles((currentTiles) => [...currentTiles, tile]);
   }
   function startGame() {
-    if(allCells.length == 0) createCells()
-    for (let i = 0; i < 2; i++) {
-      addTileToCell(new Tile());
-    }
-    console.log("startGame()-allTiles", allTiles);
+    console.log(allCells.length);
+    if (allCells.length == 0) createCells();
     setGameRunning(true);
+    for (let i = 0; i < 2; i++) {
+      const tile = new Tile();
+      addTileToCell(tile);
+    }
+  }
+  function gameOver() {
+    setGameRunning(false);
+    alert("You lose, try again...");
+    console.log("You lose, try again...");
+    setAllCells([]);
+    setAllTiles([]);
   }
   function restartGame() {
     setGameRunning(false);
+    setAllCells([]);
     setAllTiles([]);
-
-    startGame();
-    console.log("restartGame()-allTiles", allTiles);
   }
   function canMove(cells) {
     return cells.some((group) => {
@@ -137,7 +143,6 @@ export default function Board() {
       });
     });
   }
-
   function slideTiles(cells) {
     console.log("cells to slide", cells);
     return Promise.all(
