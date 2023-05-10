@@ -88,4 +88,10 @@ export const SidebarData = [
     icon: <GotIcon />,
     link: "/got",
   },
+  {
+    id: 9,
+    title: "Chatbot",
+    icon: <BiIcons.BiBot className="menu-item-icon" />,
+    link: "/chatbot",
+  },
 ];

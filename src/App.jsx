@@ -18,6 +18,7 @@ import BlackJack from "./features/games/blackjack/BlackJack";
 import GameOfThrones from "./features/got/GameOfThrones";
 import Home from "./components/Home";
 import Game2048 from "./features/games/2048/2048";
+import Chatbot from "./features/chatbot/Chatbot";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -37,13 +38,14 @@ function App() {
           }`}
         >
           <Routes>
-            <Route exact path={"/"} element={<Home />} />
+            <Route index element={<Home />} />
             <Route path={"/todo"} element={<Todo />} />
             <Route path={"/calculator"} element={<Calculator />} />
             <Route path={"/notes"} element={<Notes />} />
             <Route path={"/weather"} element={<Weather />} />
             <Route path={"/qrcode"} element={<QRCode />} />
             <Route path={"/got"} element={<GameOfThrones />} />
+            <Route path={"/chatbot"} element={<Chatbot />} />
             <Route path={"/games/2048"} element={<Game2048 />} />
             <Route path={"/timer"} element="select timer" />
             <Route
