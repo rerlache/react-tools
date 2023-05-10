@@ -53,7 +53,7 @@ export default function Chatbot() {
         "https://api.openai.com/v1/engines/text-davinci-003/completions",
         requestOptions
       )
-      .then((response) => response.json())
+      .then((response) => response.json()).catch(error => console.log(error))
 /*
     const configuration = new Configuration({
       apiKey: import.meta.env.VITE_OPENAI_MARVBOT,
